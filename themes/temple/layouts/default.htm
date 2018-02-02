@@ -1,0 +1,71 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>October CMS - {{ this.page.title }}</title>
+        <meta name="title" content="{{ this.page.meta_title }}">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta property="og:locale" content="ru_RU">
+        <meta property="og:title" content="Церковь &amp;quot;Краеугольный Камень&amp;quot; г.Калининград">
+        <meta property="og:type" content="profile">
+        <meta property="og:url" content="https://www.site.ru">
+        <meta property="og:description" content="описание">
+        <meta property="og:image" content="https://www.site.ru/img/prew.jpg">
+        <meta property="og:image:width" content="968">
+        <meta property="og:image:height" content="504">
+
+        <meta name="author" content="OctoberCMS">
+        <meta name="generator" content="OctoberCMS">
+
+        <link rel="shortcut icon" href="{{ 'assets/images/favicon/favicon.ico'|theme }}" type="image/x-icon">
+        <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+        <link href="{{ 'assets/css/main.css'|theme }}" rel="stylesheet">
+        {% styles %}
+    </head>
+    <body>
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status"></div>
+        </div>
+
+        <div class="wrapper">
+
+            <!-- Header -->
+            <header id="layout-header">
+                {% partial 'site/header' %}
+            </header>
+
+            <!-- Slider -->
+            <!-- Contacts -->
+        </div>
+
+
+
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{ 'assets/javascript/libs.min.js'|theme }}"></script>
+        <script src="{{ 'assets/javascript/common.js'|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>
