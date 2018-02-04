@@ -1,0 +1,110 @@
+.contacts {
+  color: $white;
+  // background: url('../img/contacts_bg.png');
+  background: rgba(0, 0, 0, 0.91);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  max-width: 400px;
+  border-right: solid 2px $white;
+  margin-left: -420px;
+  padding: 15px;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  @include max-screen($break_xs) {
+    overflow: auto;
+    max-width: none;
+    width: 100%;
+    border: none;
+  }
+  &_active {
+    margin-left: 0;
+  }
+  &__title {
+    text-align: center;
+    margin: 20px 0;
+  }
+  &__close {
+    font-size: 1.3em;
+    color: $white;
+    position: absolute;
+    top: 10px; right: 15px;
+    &:hover {
+      color: $gold;
+      cursor: pointer;
+    }
+  }
+  .divider {
+    width: 80%;
+    margin-bottom: 20px;
+    @include max-screen($break_xs) {
+      width: 90%;
+    }
+  }
+  &__items {
+    flex: 1;
+    justify-content: center;
+    padding: 0 40px;
+    @include max-screen($break_xs) {
+      padding: 0 10px;
+    }
+  }
+  &__item {
+    display: block;
+    margin-bottom: 30px;
+    &:hover .contacts__pic {
+      border-color: $gold;
+    }
+    &:hover .contacts__name {
+      color: $gold;
+    }
+    figure {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      figcaption {
+        letter-spacing: 2px;
+        line-height: 1.2;
+        margin-left: 20px;
+      }
+    }
+  }
+  &__pic {
+    max-width: 65px;
+    height: auto;
+    border: 3px solid $white;
+    border-radius: 50%;
+    transition: 300ms;
+  }
+  &__name {
+    transition: 300ms;
+  }
+  &__position {
+    font-size: 14px;
+    @include max-screen($break_sm) {
+      font-size: 12px;
+    }
+  }
+  &__phone, &__vk {
+    margin-top: 5px;
+    font-size: 14px;
+    transition: 300ms;
+    i {
+      margin-right: 10px;
+    }
+  }
+  &__adress {
+    text-align: center;
+    margin-bottom: 30px;
+    h2 {
+      margin-bottom: 15px;
+    }
+    ymaps {
+      margin: 0 auto;
+    }
+  }
+}

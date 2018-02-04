@@ -1,0 +1,29 @@
+.newsPost {
+  &__item {
+    background: $white;
+    padding: 45px 30px 30px 30px;
+  }
+  &__title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  &__image {
+    float: left;
+    margin: 7px 25px 0 0;
+    img {
+      max-width: 175px;
+      height: auto;
+    }
+  }
+  &__content {
+    margin-bottom: 20px;
+    p {
+     text-align: justify;
+    }
+
+  }
+  &__date {
+    font-weight: bold;
+    clear: both;
+  }
+}

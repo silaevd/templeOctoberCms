@@ -1,0 +1,46 @@
+{% set posts = __SELF__.posts %}
+
+{% for post in posts %}
+    <div class="news__item">
+        <div class="news__pic">
+            <a href="/{{ postPage }}/{{ post.slug }}">
+                {% if post.image %}
+                    <img src="{{ post.image|media }}" alt="#">
+                {% else %}
+                    <img src="{{ 'assets/images/image.png'|theme }}" alt="#">
+                {% endif %}
+            </a>
+        </div>
+        <div class="news__body">
+            <a class="news__link" href="/{{ postPage }}/{{ post.slug }}">
+                <h2 class="news__title">{{ post.title }}</h2>
+            </a>
+            <span class="news__date">{{ post.published_at|date('Y-m-d') }}</span>
+            <div class="news__text">
+                {{ post.introductory|raw }}
+            </div>
+            <a class="news__fullLink" href="/{{ postPage }}/{{ post.slug }}">Читать полностью<span>&#62;&#62;</span></a>
+        </div>
+    </div>
+{% endfor %}
+
+<!--<div class="post-list">-->
+    <!--{% for post in posts %}-->
+    <!--<div class="post-item">-->
+        <!--{% if post.image %}<div class="post-image"><a href="/{{ postPage }}/{{ post.slug }}"><img src="{{ post.image|media }}" alt="{{ post.title }}"></a></div>{% endif %}-->
+
+        <!--<h2 class="post-title"><a href="/{{ postPage }}/{{ post.slug }}">{{ post.title }}</a></h2>-->
+        <!--<p class="post-date">{{ post.published_at|date('Y-m-d') }}</p>-->
+
+        <!--{% if post.introductory %}-->
+        <!--<div class="post-introductory">{{ post.introductory|raw }}</div>-->
+        <!--{% elseif post.content %}-->
+        <!--<div class="post-content">{{ post.content|raw }}</div>-->
+        <!--{% endif %}-->
+    <!--</div>-->
+    <!--{% else %}-->
+    <!--<span class="post-nodata">{{ noPostsMessage }}</span>-->
+    <!--{% endfor %}-->
+<!--</div>-->
+
+{{ posts.render|raw }}

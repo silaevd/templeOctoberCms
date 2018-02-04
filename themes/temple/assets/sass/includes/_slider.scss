@@ -1,0 +1,54 @@
+.slider {
+  margin-top: 130px;
+  @include max-screen($break_xs) {
+    margin-top: 72px;
+  }
+}
+.vision {
+  &__item {
+    background: $white;
+    height: 500px;
+    position: relative;
+    @include max-screen($break_lg) {
+      height: 392px;
+    }
+    @include max-screen($break_md) {
+      height: 334px;
+    }
+    @include max-screen($break_sm) {
+      height: 250px;
+    }
+    @include max-screen($break_xs) {
+      height: 156px;
+    }
+    @include max-screen($break_xxs) {
+      height: 104px;
+    }
+    a {
+      display: flex;
+      align-items: flex-end;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      overflow: hidden;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+      }
+      h2 {
+        font-size: 1.8em;
+        padding: 1em;
+        max-width: 800px;
+        text-shadow: 1px 1px 4px black;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        bottom: 1.5em; left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Didact Gothic";
+  src: url("../fonts/DidactGothic-Regular.ttf");
+  // src: url("../fonts/pfbeausansproreg-webfont.woff");
+}
+
+@font-face {
+  font-family: "Play Bold";
+  src: url("../fonts/PlayBold.ttf");
+  // src: url("../fonts/pfbeausansprosemibold-webfont.woff");
+}
+
+$regular: 'Didact Gothic', sans-serif;
+$bold: 'Play Bold', sans-serif;

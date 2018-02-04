@@ -121,20 +121,6 @@
     });
 
     /* ---------------------------------------------- /*
-     * News__fullLink
-    /* ---------------------------------------------- */
-
-    $('.news__fullLink').on('click', function () {
-      event.preventDefault();
-
-      $(this).siblings('.news__text')
-             .removeClass('news__text')
-             .addClass('news__textFull');
-
-      $(this).hide();
-    });
-
-    /* ---------------------------------------------- /*
      * Events__date
     /* ---------------------------------------------- */
 
@@ -152,16 +138,6 @@
     });
 
     /* ---------------------------------------------- /*
-     * Scroll to id
-    /* ---------------------------------------------- */
-
-    $('.navbar-nav>li>a').mPageScroll2id({
-        scrollSpeed: 1400,
-        scrollEasing: "easeOutQuint",
-        offset: 49
-      });
-
-    /* ---------------------------------------------- /*
      * No images drag
     /* ---------------------------------------------- */
 
@@ -169,92 +145,3 @@
     event.preventDefault();
     });
 
-    /* ---------------------------------------------- /*
-     * E-mail submit and validation
-    /* ---------------------------------------------- */
-
-    var validate = {
-
-        initialize: function() {
-          this.modules();
-          this.setUpListeners();
-        },
-
-        modules: function() {
-          function validColor() {
-            var val = $(this).val();
-            if ( val.length > 0 ) {
-              $(this).css('border-color', '#3D9970');
-            } else {
-              $(this).css('border-color', '#FF4136');
-            }
-          }
-          $('.contacts__formInput').on('keydown ', validColor);
-          $('.contacts__formInput').on('blur ', validColor);
-        },
-
-        setUpListeners: function () {
-          $("#sentMessage").on('submit', validate.submitForm);
-        },
-
-        submitForm: function(e) {
-          e.preventDefault();
-
-          var form = $(this),
-              submitBtn = form.find('button[type="submit"]');
-
-          if( validate.validateform(form) === false ) {
-            return false;
-          }else {
-            submitBtn.attr('disabled', 'disabled').addClass('disabled');
-            $.ajax({
-              type: "POST",
-              url: "./mail.php",
-              data: form.serialize()
-            }).done(function() {
-              console.log(form.serialize());
-              $(submitBtn).notify("Ваше сообщение успешно отправленно!", {
-                className: 'success',
-                clickToHide: true,
-                arrowShow: true,
-                position: 'right middle'
-              });
-              setTimeout(function() {
-                // Done Functions
-                form.trigger("reset");
-                submitBtn.removeAttr('disabled').removeClass('disabled');
-              }, 1000);
-            });
-            return false;
-          }
-
-        },
-
-        validateform: function(form) {
-          var inputs = form.find('.contacts__formInput'),
-              valid = true;
-
-          $.each(inputs, function(index, val) {
-            var input = $(val),
-                val = input.val();
-
-            if(val.length === 0){
-              input.notify("поле обязательно для заполнения!", {
-                className: 'error',
-                clickToHide: true,
-                arrowShow: true,
-                position: 'top middle'
-              });
-              input.css('border-color', '#FF4136');
-              valid = false;
-            }
-          });
-
-          return valid;
-
-        }
-
-    };
-    validate.initialize();
-
-  });

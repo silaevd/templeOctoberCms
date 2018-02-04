@@ -1,0 +1,39 @@
+{% set post = __SELF__.post %}
+
+<section class="newsPost">
+
+    <div class="sectionTitle">
+        <h1>{{ post.title }}</h1>
+    </div>
+
+    <div class="newsPost__item">
+
+        <h2 class="newsPost__title">{{ post.title }}</h2>
+
+        {% if post.image %}
+            <div class="newsPost__image">
+                <img src="{{ post.image|media }}" alt="{{ post.title }}">
+            </div>
+        {% endif %}
+
+        {% if post.content %}
+            <div class="newsPost__content">
+                {{ post.content|raw }}
+            </div>
+        {% endif %}
+
+        <p class="newsPost__date">Дата: {{ post.published_at|date('Y-m-d') }}</p>
+
+    </div>
+
+</section>
+
+<!--<section class="newsPost">-->
+        <!--<h2 class="post-title">{{ post.title }}</h2>-->
+        <!--{% if post.image %}<div class="post-image"><img src="{{ post.image|media }}" alt="{{ post.title }}"></div>{% endif %}-->
+
+        <!--{% if post.introductory %}<div class="post-introductory">{{ post.introductory|raw }}</div>{% endif %}-->
+        <!--{% if post.content %}<div class="post-content">{{ post.content|raw }}</div>{% endif %}-->
+
+        <!--<p class="post-date">Posted on {{ post.published_at|date('Y-m-d') }}</p>-->
+<!--</section>-->

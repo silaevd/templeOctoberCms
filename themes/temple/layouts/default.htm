@@ -45,21 +45,30 @@ description = "Default layout"
             </header>
 
             <!-- Slider -->
+            {% partial 'site/slider' %}
+
             <!-- Contacts -->
+            {% partial 'site/contacts' %}
+
+            <div class="container">
+                <div class="content">
+
+                    <!-- Content -->
+                    <main id="main" class="main">
+                        {% page %}
+                    </main>
+
+                    <!-- Aside#Events -->
+                    {% partial 'site/events' %}
+
+                </div>
+            </div>
         </div>
 
-
-
-
-        <!-- Content -->
-        <section id="layout-content">
-            {% page %}
-        </section>
-
         <!-- Footer -->
-        <footer id="layout-footer">
+        <div class="container">
             {% partial 'site/footer' %}
-        </footer>
+        </div>
 
         <!-- Scripts -->
         <script src="{{ 'assets/javascript/libs.min.js'|theme }}"></script>
